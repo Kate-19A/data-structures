@@ -13,8 +13,8 @@ print(f"Var numberx is: {type(numberx)}")
 This is a scope comment
 '''
 
-my_name = "Tatiana"
-full_name = "Tatiana Yaqueline"
+my_name = "Kateryn"
+full_name = "Kateryn Barrera"
 description = '''
 Hello, how's it going?
 This is amazing !!!
