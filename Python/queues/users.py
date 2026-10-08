@@ -42,5 +42,5 @@ match opt:
 
     case '2':
         print ("List all registered users...")
-        
+         
         print ()
