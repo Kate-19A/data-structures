@@ -139,7 +139,29 @@ while True:
 
             any_key = input ("Press any key to back to main menu")
 
+        #option 3. Search users
+        case '3':
+            os.system('clear')
+            print("Search User :::\n")
 
+            id.user=input("Enter the identification number to search: ")
+            i = 0
+            j = 0
+            while i < len(ids):
+                if id_user == ids[i]:
+                   i+=1
+                   break
+                i+=1
+            if j>0:
+                print(f"Idenr. user: {ids[i]}")
+                print(f"Fullname: {fullnames[i]} {lastnames[i]}")
+                print(f"Mobile Phone: {phones[i]}")
+                print(f"Email: {emails[i]}")
+                print(f"Gender: {genders[i]}")
+                print(f"Age: {ages[i]}")
+                print(f"Salary: {salarys[i]}")
+            else:
+                print("Identification number not found")
 
         case '8': 
             any_key=input("bye bye. press any key... ")
