@@ -4,7 +4,7 @@ from datetime import date
 #functions
 def mainMenu():
     print (":::Main menu:::")
-    print ("[1]Regsiter aa new user")
+    print ("[1]Register a new user")
     print ("[2]List all users")
     print ("[3]Search user")
     print ("[4]Delete user")
@@ -82,18 +82,52 @@ while True:
 
 
         case '2':
-            os.system('clear')
-            print(":::List all registered users:::")
+            while True:
+                os.system('clear')
+                print(":::List all registered users:::")
+                print("[1] Sort in ascending order by identification")
+                print("[2] Sort in descending order by identification")
+                print("[3] Sort in ascending order by lastname")
+                print("[4] Sort in descending order by lastname")
+                print("[5] Exit")
+                sub_opt = input("Select an option [1-5]: ")
 
-            print ('-'*163)
-            print (f"| {'id':<15} | {'Firsname':<15} | {'Lastname':<15} | {'Mobile Phone':<15} | {'Emails':<15} | {'Genders':<15} | {'Ages':<15} | {'Salarys':<15} | {'Created':<15} |")
-            print ('-'*163)
+                if sub_opt == '5':
+                    break
 
-            i=0
-            while i < len(ids):
-                print(f'| {ids[i]:<15} | {firtsnames[i]:<15} | {lastnames[i]:<15} | {mobile_phones[i]:<15} | {emails[i]:<15} | {genders[i]:<15} |  {ages[i]:<15}| {salarys[i]:<15} | {created_at[i]}      |')
+                if len(ids) == 0:
+                    any_key = input("No registered users found! Press any key to back...")
+                    break
+
+                indices = list(range(len(ids)))
+
+                if sub_opt == '1':
+                    indices.sort(key=lambda x: ids[x])
+                elif sub_opt == '2':
+                    indices.sort(key=lambda x: ids[x], reverse=True)
+                elif sub_opt == '3':
+                    indices.sort(key=lambda x: lastnames[x])
+                elif sub_opt == '4':
+                    indices.sort(key=lambda x: lastnames[x], reverse=True)
+                else:
+                    any_key = input("Invalid option. Press any key to try again...")
+                    continue
+
+                os.system('clear')
+                print(":::List all registered users:::")
+
                 print ('-'*163)
-                i += 1
+                print (f"| {'id':<15} | {'Firsname':<15} | {'Lastname':<15} | {'Mobile Phone':<15} | {'Emails':<15} | {'Genders':<15} | {'Ages':<15} | {'Salarys':<15} | {'Created':<15} |")
+                print ('-'*163)
+
+                i=0
+                while i < len(indices):
+                    idx = indices[i]
+                    print(f'| {ids[idx]:<15} | {firtsnames[idx]:<15} | {lastnames[idx]:<15} | {mobile_phones[idx]:<15} | {emails[idx]:<15} | {genders[idx]:<15} |  {ages[idx]:<15}| {salarys[idx]:<15} | {created_at[idx]}      |')
+                    print ('-'*163)
+                    i += 1
+
+                any_key = input ("Press any key to back to list menu")
 
             #print(f"IDs: {ids}")
             #print(f"Firsnames: {firtsname}")
